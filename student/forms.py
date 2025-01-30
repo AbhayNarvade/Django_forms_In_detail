@@ -23,6 +23,7 @@ JOB_CITIES = [
 
 class ProfileForms(forms.ModelForm):
     gender = forms.ChoiceField(choices=GENDER_CHOICES , widget= forms.RadioSelect )
+    
     class Meta :
         model = Profile
         fields = [
@@ -33,11 +34,12 @@ class ProfileForms(forms.ModelForm):
             'name' : 'Full Name',
             'pin' : 'Pin Code',
             'mobile' : 'Mobile Number',
-            'dob' : 'Date of Birth'
+            'dob' : 'Date of Birth',
+            'job_city' : 'Prefered job city'
         }
 
         help_texts = {
-         'profile_image' : 'optional : Upload a Profile Image ',
+         'profile_image': 'Upload your profile photo',
          'my_file' : 'optional : Attach any additional document (PDF , DOCX , etc.) ',
         }
 
@@ -47,4 +49,11 @@ class ProfileForms(forms.ModelForm):
             'locality' : forms.TextInput(attrs={'class' : 'form-control' , 'placeholder' : 'write your area name'}) ,
             'city' : forms.TextInput(attrs={'class' : 'form-control' , 'placeholder' : 'write your city name'}) ,
             'pin' : forms.NumberInput(attrs={'class' : 'form-control' , 'placeholder' : 'Enter your Pin code', }) ,
+            'state' : forms.Select(attrs={'class' : 'form-select'  }) ,
+            'mobile' : forms.NumberInput(attrs={'class' : 'form-control' , 'placeholder' : 'Enter your mobile number', }) ,
+            'email' : forms.EmailInput(attrs={'class' : 'form-control' , 'placeholder' : 'Enter your email', }) ,
+            'job_city' : forms.CheckboxSelectMultiple(attrs={'class' : 'form-check-input' } , choices= JOB_CITIES) ,
+            'profile_image' : forms.FileInput(attrs={'class' : 'form-control' , } ) ,
+            'my_file' : forms.FileInput(attrs={'class' : 'form-control' ,  } ) ,
         }
+
