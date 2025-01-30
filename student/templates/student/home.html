@@ -182,7 +182,9 @@
   <u>List of Candidate</u>
   
   {% for items in data  %}
-   <li> {{items.name}} </li>
+   <li> {{items.name}}    <a href="{% url "Delete" items.id %}" class="btn btn-danger">Delete</a>
+    <a href="{% url "update" items.id %}" class="btn btn-success">update</a>
+   </li>
   {% endfor %}
 </h4>
 {% endblock right-content %}
