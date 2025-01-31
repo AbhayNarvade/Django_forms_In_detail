@@ -53,10 +53,10 @@ def deletedata(request, pk):
             file_name = value[1]
             print(f"file_name: {file_name}")
             # Construct the file path relative to BASE_DIR
-            filepath = str(settings.BASE_DIR) + "" +  file_name
+            filepath = str(settings.MEDIA_ROOT) + "" +  file_name
             if os.path.exists(filepath):
                 os.unlink(filepath) 
-            #     print(value[1])
+                # print('exit')
 
         data.delete()
 
